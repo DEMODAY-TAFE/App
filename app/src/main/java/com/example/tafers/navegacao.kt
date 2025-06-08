@@ -1,4 +1,4 @@
-package com.example.tafe
+package com.example.tafers
 
 sealed class Screen(val route: String) {
     object BemVindo : Screen("BemVindo")

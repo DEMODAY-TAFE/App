@@ -1,5 +1,5 @@
 // app/src/main/java/com/example/tafe/repositorio.kt
-package com.example.tafe
+package com.example.tafers
 
 data class CursoRepositorio(
     val titulo: String,
