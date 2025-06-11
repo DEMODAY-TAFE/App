@@ -1,4 +1,4 @@
-package com.example.tafers.telas
+package com.example.tafers.telas.Perfil
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape

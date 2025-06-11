@@ -1,4 +1,4 @@
-package com.example.tafers.telas
+package com.example.tafers.telas.Cursos
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
