@@ -13,19 +13,23 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.tafers.Screen.BemVindo
 import com.example.tafers.chat.ChatViewModel
-import com.example.tafers.telas.DetalhesScreen
-import com.example.tafers.telas.TodosTreinamentosScreen
-import com.example.tafers.telas.PerfilScreen
+import com.example.tafers.telas.maodeobra.Cursos.DetalhesScreen
+import com.example.tafers.telas.maodeobra.Cursos.TodosTreinamentosScreen
+import com.example.tafers.telas.maodeobra.Perfil.PerfilScreen
 import com.example.tafers.telas.TreinamentosScreen
-import com.example.tafers.telas.bemvindo.TutorialFlow
-import com.example.tafers.telas.bemvindo.WelcomeScreen
+import com.example.tafers.telas.maodeobra.bemvindo.TutorialFlow
+import com.example.tafers.telas.maodeobra.bemvindo.WelcomeScreen
 import com.example.tafers.ui.theme.TafersTheme
 import com.example.tafers.chat.chact.ChatScreen
+import com.example.tafers.telas.maodeobra.CertificadosScreen
+import com.example.tafers.telas.maodeobra.Cursos.QuizScreen
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +64,7 @@ fun TafeApp() {
             exitTransition = { fadeOut(animationSpec = tween(500)) }
         ) { TutorialFlow(navController) }
         composable(
-            "inicio",
+            "home",
             enterTransition = { fadeIn(animationSpec = tween(500)) },
             exitTransition = { fadeOut(animationSpec = tween(500)) }
         ) { TreinamentosScreen(navController) }
@@ -98,11 +102,22 @@ fun TafeApp() {
         ) {
             val chatViewModel: ChatViewModel = viewModel()
             val context = LocalContext.current
-            // Inicializa o TTS apenas uma vez
+
             LaunchedEffect(Unit) {
                 chatViewModel.initTTS(context)
             }
-            ChatScreen(modifier = Modifier, viewModel = chatViewModel)
+            ChatScreen(modifier = Modifier, viewModel = chatViewModel, navController = navController)
         }
+        composable(
+            "certificados",
+            enterTransition = { fadeIn(animationSpec = tween(500)) },
+            exitTransition = { fadeOut(animationSpec = tween(500)) }
+        ) { CertificadosScreen(navController)
+        }
+        composable("quiz/{tituloCurso}") { backStackEntry ->
+            val tituloCurso = backStackEntry.arguments?.getString("tituloCurso") ?: ""
+            QuizScreen(tituloCurso = tituloCurso, navController = navController)
+        }
+
     }
 }

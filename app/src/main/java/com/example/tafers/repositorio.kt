@@ -1,12 +1,20 @@
 // app/src/main/java/com/example/tafe/repositorio.kt
 package com.example.tafers
 
+data class QuizQuestion(
+    val pergunta: String,
+    val alternativas: List<String>,
+    val respostaCorreta: Int // índice da alternativa correta
+)
+
 data class CursoRepositorio(
     val titulo: String,
     val imagemResId: Int,
     val descricao: String,
     val categoria: String,
-    val topicos: List<String>
+    val topicos: List<String>,
+    val videoUrl: String? = null,
+    val quiz: List<QuizQuestion>
 )
 
 object CursosRepositorio {
@@ -21,6 +29,19 @@ object CursosRepositorio {
                 "Epis específicas",
                 "Procedimentos de uso",
                 "Cuidados e manutenção"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
         ),
         CursoRepositorio(
@@ -32,6 +53,19 @@ object CursosRepositorio {
                 "Óculos de proteção",
                 "Riscos comuns",
                 "Limpeza e conservação"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
         ),
         CursoRepositorio(
@@ -43,6 +77,19 @@ object CursosRepositorio {
                 "Tipos de calçados",
                 "Normas de segurança",
                 "Cuidados no uso"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
         ),
         CursoRepositorio(
@@ -54,6 +101,19 @@ object CursosRepositorio {
                 "Segurança na altura",
                 "Equipamentos obrigatórios",
                 "Procedimentos de emergência"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
         ),
         CursoRepositorio(
@@ -65,8 +125,21 @@ object CursosRepositorio {
                 "Riscos elétricos",
                 "Prevenção de acidentes",
                 "Primeiros socorros"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
-        ),
+            ),
         CursoRepositorio(
             titulo = "ESPAÇO CONFINADO",
             imagemResId = R.drawable.logo,
@@ -76,6 +149,19 @@ object CursosRepositorio {
                 "Definição de espaço confinado",
                 "Riscos e prevenção",
                 "Equipamentos de segurança"
+            ),
+            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            quiz = listOf(
+                QuizQuestion(
+                    pergunta = "Qual o principal objetivo das luvas de proteção?",
+                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
+                    respostaCorreta = 1
+                ),
+                QuizQuestion(
+                    pergunta = "Quando as luvas devem ser substituídas?",
+                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    respostaCorreta = 1
+                )
             )
         )
     )

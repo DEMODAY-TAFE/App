@@ -43,7 +43,9 @@ val listaTreinamentos = CursosRepositorio.cursos.map {
         imagemResId = it.imagemResId,
         descricao = it.descricao,
         categoria = it.categoria,
-        topicos = it.topicos
+        topicos = it.topicos,
+        videoUrl = it.videoUrl,
+        quiz = it.quiz
     )
 }
 
@@ -227,7 +229,7 @@ fun TreinamentosScreen(
     Scaffold(
         containerColor = Color.White,
         bottomBar = {
-            NavBar(navController = navController, currentRoute = "treinamentos")
+            NavBar(navController = navController, currentRoute = "home")
         }
     ) { innerPadding ->
         Column(

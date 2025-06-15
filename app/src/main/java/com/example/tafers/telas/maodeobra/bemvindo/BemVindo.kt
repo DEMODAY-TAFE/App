@@ -1,4 +1,4 @@
-package com.example.tafers.telas.bemvindo
+package com.example.tafers.telas.maodeobra.bemvindo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

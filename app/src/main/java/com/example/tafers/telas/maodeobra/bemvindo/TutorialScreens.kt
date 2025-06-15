@@ -1,4 +1,4 @@
-package com.example.tafers.telas.bemvindo
+package com.example.tafers.telas.maodeobra.bemvindo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -44,7 +44,7 @@ fun TutorialFlow(navController: NavController) {
             currentStep++
         } else if (currentStep == tutorialData.size - 1) {
             delay(3000)
-            navController.navigate("treinamentos") {
+            navController.navigate("home") {
                 popUpTo("BemVindo") { inclusive = true }
             }
         }
@@ -64,13 +64,13 @@ fun TutorialFlow(navController: NavController) {
                 if (page < tutorialData.size - 1) {
                     scope.launch { pagerState.animateScrollToPage(page + 1) }
                 } else {
-                    navController.navigate("inicio") {
+                    navController.navigate("home") {
                         popUpTo("BemVindo") { inclusive = true }
                     }
                 }
             },
             onSkip = {
-                navController.navigate("inicio") {
+                navController.navigate("home") {
                     popUpTo("BemVindo") { inclusive = true }
                 }
             },

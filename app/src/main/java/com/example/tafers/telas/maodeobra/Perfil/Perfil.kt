@@ -1,5 +1,6 @@
-package com.example.tafers.telas.Perfil
+package com.example.tafers.telas.maodeobra.Perfil
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import androidx.compose.ui.text.font.FontWeight
@@ -19,6 +21,7 @@ import androidx.navigation.NavController
 @Composable
 fun PerfilScreen(navController: NavController) {
     Scaffold(
+        modifier = Modifier.background(Color.White),
         topBar = {
             TopAppBar(
                 title = { Text("Meu Perfil") },
@@ -30,6 +33,12 @@ fun PerfilScreen(navController: NavController) {
                         )
                     }
                 }
+            )
+        },
+        bottomBar = {
+            com.example.tafers.componentes.NavBar(
+                navController = navController,
+                currentRoute = "perfil"
             )
         }
     ) { padding ->

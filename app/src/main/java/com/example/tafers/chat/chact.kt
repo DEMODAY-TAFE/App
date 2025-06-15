@@ -2,6 +2,7 @@ package com.example.tafers.chat.chact
 
 
 import android.content.Intent
+import androidx.compose.material3.OutlinedTextField
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
@@ -18,47 +19,62 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.tafers.chat.ChatViewModel
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.NavController
 import com.example.tafers.chat.MessageModel
 import com.example.tafers.ui.theme.ColorUserMessage
 import androidx.compose.runtime.remember as remeber
 
 
 
+
 @Composable
 fun ChatScreen(
     modifier: Modifier = Modifier,
-    viewModel: ChatViewModel
+    viewModel: ChatViewModel,
+    navController: NavController
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        AppHeader()
-        MessageList(
-            messageList = viewModel.messageList,
-            viewModel = viewModel,
-            modifier = Modifier.weight(1f)
-        )
-        MessageInput(onMessageSend = {
-            viewModel.sendMessage(it)
-        })
+    androidx.compose.material3.Scaffold(
+        bottomBar = {
+            com.example.tafers.componentes.NavBar(
+                navController = navController,
+                currentRoute = "chat"
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .padding(innerPadding)
+                .padding(16.dp)
+        ) {
+            AppHeader()
+            MessageList(
+                messageList = viewModel.messageList,
+                viewModel = viewModel,
+                modifier = Modifier.weight(1f)
+            )
+            MessageInput(onMessageSend = {
+                viewModel.sendMessage(it)
+            })
+        }
     }
 }
 
@@ -72,7 +88,7 @@ fun MessageList(
         modifier = modifier,
         reverseLayout = true
     ){
-        items(messageList.reversed()) {
+        items(messageList) {
             MessageItem(
                 message = it,
                 viewModel = viewModel,
@@ -115,18 +131,28 @@ fun MessageItem(
             modifier = modifier.fillMaxWidth(),
         ){
             Box(
-                modifier = Modifier.align(if (isModel) Alignment.CenterStart else Alignment.CenterEnd)
-                    .background(if (isModel) ColorUserMessage else Color.LightGray)
+                modifier = Modifier
+                    .align(if (isModel) Alignment.CenterStart else Alignment.CenterEnd)
+                    .background(
+                        color = if (isModel) ColorUserMessage else Color.LightGray,
+                        shape = RoundedCornerShape(16.dp)
+                    )
                     .padding(
                         start = if (isModel) 16.dp else 0.dp,
                         end = if (isModel) 0.dp else 16.dp,
+                        top = 8.dp,
+                        bottom = 8.dp
                     )
-            ){
+            ) {
                 Text(
                     text = message.message,
-                    color = if (message.role == "user") Color.Black else Color.DarkGray
+                    color = if (message.role == "user") Color.Black else Color.DarkGray,
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.align(Alignment.Center),
+                    textAlign = TextAlign.Center
                 )
             }
+
         }
     }
 }
@@ -186,7 +212,8 @@ fun MessageInput(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
-            placeholder = { Text("Digite sua mensagem") }
+            placeholder = { Text("Digite sua mensagem") },
+            shape = RoundedCornerShape(24.dp),
         )
         IconButton(onClick = {
             speechRecognizer.startListening(intent)
