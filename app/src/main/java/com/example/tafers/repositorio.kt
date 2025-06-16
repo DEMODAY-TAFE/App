@@ -22,144 +22,96 @@ object CursosRepositorio {
         CursoRepositorio(
             titulo = "PROTEÇÃO PARA AS MÃOS",
             imagemResId = R.drawable.imgmao,
-            descricao = "Treinamento sobre o uso correto de luvas de proteção e equipamentos para segurança das mãos.",
-            categoria = "Elétrica",
+            descricao = "Treinamento sobre o uso correto de luvas de proteção em diferentes ambientes de trabalho.",
+            categoria = "EPIs - Mãos",
             topicos = listOf(
-                "Tipos de luvas",
-                "Epis específicas",
-                "Procedimentos de uso",
-                "Cuidados e manutenção"
+                "Seleção por risco (mecânico, químico, térmico)",
+                "Norma NR 6 - Certificação CA",
+                "Teste de estanqueidade",
+                "Descarte seguro"
             ),
-            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            videoUrl = "https://youtu.be/dM8sgLqXxbw",
             quiz = listOf(
                 QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
-                    respostaCorreta = 1
+                    pergunta = "Qual luva protege contra riscos químicos e cortes?",
+                    alternativas = listOf("Latex", "Kevlar", "Nitrile com malha de aço", "Algodão"),
+                    respostaCorreta = 2
                 )
             )
         ),
         CursoRepositorio(
-            titulo = "PROTEÇÃO PARA OS OLHOS",
-            imagemResId = R.drawable.image,
-            descricao = "Aprenda a utilizar óculos de proteção e equipamentos para segurança ocular.",
-            categoria = "Construção",
+            titulo = "PROTEÇÃO AUDITIVA",
+            imagemResId = R.drawable.imgouvido,
+            descricao = "Uso correto de protetores auriculares e abafadores de ruído.",
+            categoria = "EPIs - Ouvidos",
             topicos = listOf(
-                "Óculos de proteção",
-                "Riscos comuns",
-                "Limpeza e conservação"
+                "NR 15 - Limites de exposição ao ruído",
+                "Tipos: plug vs. abafador",
+                "NRR (Noise Reduction Rating)",
+                "Higienização diária"
             ),
-            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            videoUrl = "https://youtu.be/YBJkDX6AW64",
             quiz = listOf(
                 QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
-                    respostaCorreta = 1
+                    pergunta = "Qual o NRR mínimo recomendado para 85dB?",
+                    alternativas = listOf("10dB", "15dB", "20dB", "25dB"),
+                    respostaCorreta = 2
                 )
             )
         ),
         CursoRepositorio(
-            titulo = "PROTEÇÃO PARA OS PÉS",
-            imagemResId = R.drawable.logo,
-            descricao = "Calçados de segurança e proteção para os pés em ambientes de trabalho.",
-            categoria = "Construção",
+            titulo = "PROTEÇÃO PARA A CABEÇA",
+            imagemResId = R.drawable.imgcapacete,
+            descricao = "Normas e procedimentos para uso correto de capacetes de segurança.",
+            categoria = "EPIs - Cabeça",
             topicos = listOf(
-                "Tipos de calçados",
-                "Normas de segurança",
-                "Cuidados no uso"
+                "Classes de impacto (ABET)",
+                "Compatibilidade com outros EPIs",
+                "Substituição após impacto"
             ),
-            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            videoUrl = "https://youtu.be/5Tt7iMxHLq8",
             quiz = listOf(
                 QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
-                    respostaCorreta = 1
+                    pergunta = "Qual componente NÃO faz parte do sistema de absorção de impacto?",
+                    alternativas = listOf("Arnês", "Casco", "Jugular", "Viseira"),
+                    respostaCorreta = 3
                 )
             )
         ),
         CursoRepositorio(
-            titulo = "TRABALHO EM ALTURA",
-            imagemResId = R.drawable.logo,
-            descricao = "Normas e procedimentos para trabalho em altura com segurança.",
-            categoria = "Altura",
+            titulo = "PROTEÇÃO VISUAL",
+            imagemResId = R.drawable.imgoculos,
+            descricao = "Uso adequado de óculos e protetores faciais.",
+            categoria = "EPIs - Olhos",
             topicos = listOf(
-                "Segurança na altura",
-                "Equipamentos obrigatórios",
-                "Procedimentos de emergência"
+                "Proteção contra UV/IR",
+                "Lentes fotocromáticas",
+                "Viseiras para solda"
             ),
-            videoUrl = "https://youtu.be/hogl9BmMO_c",
+            videoUrl = "https://youtu.be/uTWN8992ogA",
             quiz = listOf(
                 QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
-                    respostaCorreta = 1
+                    pergunta = "Qual símbolo indica proteção contra solda?",
+                    alternativas = listOf("UV+", "W+", "IR-5", "EN166"),
+                    respostaCorreta = 3
                 )
             )
         ),
         CursoRepositorio(
-            titulo = "CHOQUES ELÉTRICOS",
-            imagemResId = R.drawable.logo,
-            descricao = "Prevenção e proteção contra choques elétricos em ambientes industriais.",
-            categoria = "Elétrica",
+            titulo = "PROTEÇÃO CONTRA QUEDAS",
+            imagemResId = R.drawable.imgcinto,
+            descricao = "Sistemas completos de segurança para trabalho em altura.",
+            categoria = "EPIs - Quedas",
             topicos = listOf(
-                "Riscos elétricos",
-                "Prevenção de acidentes",
-                "Primeiros socorros"
+                "NR 35 - Requisitos",
+                "Fator de queda",
+                "Ancoragem estrutural"
             ),
             videoUrl = "https://youtu.be/hogl9BmMO_c",
             quiz = listOf(
                 QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
-                    respostaCorreta = 1
-                )
-            )
-            ),
-        CursoRepositorio(
-            titulo = "ESPAÇO CONFINADO",
-            imagemResId = R.drawable.logo,
-            descricao = "Procedimentos seguros para trabalho em espaços confinados.",
-            categoria = "Outros",
-            topicos = listOf(
-                "Definição de espaço confinado",
-                "Riscos e prevenção",
-                "Equipamentos de segurança"
-            ),
-            videoUrl = "https://youtu.be/hogl9BmMO_c",
-            quiz = listOf(
-                QuizQuestion(
-                    pergunta = "Qual o principal objetivo das luvas de proteção?",
-                    alternativas = listOf("Conforto térmico", "Segurança das mãos", "Estética", "Aumentar a força"),
-                    respostaCorreta = 1
-                ),
-                QuizQuestion(
-                    pergunta = "Quando as luvas devem ser substituídas?",
-                    alternativas = listOf("Quando estiverem sujas", "Quando apresentarem danos", "A cada semana", "Nunca"),
+                    pergunta = "Qual distância máxima livre de queda?",
+                    alternativas = listOf("1m", "1.5m", "2m", "6m"),
                     respostaCorreta = 1
                 )
             )

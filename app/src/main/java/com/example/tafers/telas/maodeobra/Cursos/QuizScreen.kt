@@ -1,6 +1,5 @@
 package com.example.tafers.telas.maodeobra.Cursos
 
-import android.R.attr.padding
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -67,6 +66,9 @@ fun QuizScreen(tituloCurso: String, navController: NavController) {
                             selecionada = -1
                         } else {
                             finalizado = true
+                            curso?.titulo?.let {
+                                CertificadosConquistados.adicionar(it)
+                            }
                         }
                     }
                 )

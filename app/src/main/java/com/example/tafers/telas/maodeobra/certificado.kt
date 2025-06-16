@@ -12,14 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.tafers.telas.maodeobra.Cursos.CertificadosConquistados
 
 // Exemplo de dados
-val certificados = listOf(
-    "NR-10 - Segurança em Instalações Elétricas",
-    "NR-35 - Trabalho em Altura",
-    "Primeiros Socorros",
-    "Brigada de Incêndio"
-)
+// app/src/main/java/com/example/tafers/telas/maodeobra/certificado.kt
+val certificados = CertificadosConquistados.lista
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
