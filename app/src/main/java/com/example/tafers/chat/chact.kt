@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
@@ -35,8 +37,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
+import com.example.tafers.R
 import com.example.tafers.chat.MessageModel
 import com.example.tafers.ui.theme.ColorUserMessage
 import androidx.compose.runtime.remember as remeber
@@ -86,7 +91,6 @@ fun MessageList(
 ) {
     LazyColumn (
         modifier = modifier,
-        reverseLayout = true
     ){
         items(messageList) {
             MessageItem(
@@ -134,20 +138,15 @@ fun MessageItem(
                 modifier = Modifier
                     .align(if (isModel) Alignment.CenterStart else Alignment.CenterEnd)
                     .background(
-                        color = if (isModel) ColorUserMessage else Color.LightGray,
+                        color = if (isModel) Color(0xFFFF7900) else Color(0xFF0014C0),
                         shape = RoundedCornerShape(16.dp)
                     )
-                    .padding(
-                        start = if (isModel) 16.dp else 0.dp,
-                        end = if (isModel) 0.dp else 16.dp,
-                        top = 8.dp,
-                        bottom = 8.dp
-                    )
+                    .padding(16.dp, 12.dp, 16.dp, 12.dp)
             ) {
                 Text(
                     text = message.message,
-                    color = if (message.role == "user") Color.Black else Color.DarkGray,
-                    style = MaterialTheme.typography.bodyLarge,
+                    color = Color.White,
+                    style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.align(Alignment.Center),
                     textAlign = TextAlign.Center
                 )
@@ -158,15 +157,28 @@ fun MessageItem(
 }
 
 @Composable
-fun AppHeader(){
-    Box(
+fun AppHeader() {
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Red)
+            .height(80.dp)
+            .background(Color.White)
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
+        // Substitua pelo seu recurso de imagem de perfil
+        androidx.compose.foundation.Image(
+            painter = painterResource(id = R.drawable.ic_profile), // coloque o id correto do drawable
+            contentDescription = "Perfil",
+            modifier = Modifier
+                .size(60.dp)
+                .background(Color.LightGray, shape = RoundedCornerShape(24.dp))
+        )
         Text(
-            text = "Chat",
-            modifier = Modifier.padding(8.dp)
+            text = "Joel",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 16.dp)
         )
     }
 }

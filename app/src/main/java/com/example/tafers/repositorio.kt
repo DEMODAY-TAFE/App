@@ -1,6 +1,11 @@
 // app/src/main/java/com/example/tafe/repositorio.kt
 package com.example.tafers
 
+data class CertificadoModel(
+    val titulo: String,
+    val imagemResId: Int
+)
+
 data class QuizQuestion(
     val pergunta: String,
     val alternativas: List<String>,
@@ -14,7 +19,8 @@ data class CursoRepositorio(
     val categoria: String,
     val topicos: List<String>,
     val videoUrl: String? = null,
-    val quiz: List<QuizQuestion>
+    val quiz: List<QuizQuestion>,
+    val certificado: CertificadoModel
 )
 
 object CursosRepositorio {
@@ -37,6 +43,10 @@ object CursosRepositorio {
                     alternativas = listOf("Latex", "Kevlar", "Nitrile com malha de aço", "Algodão"),
                     respostaCorreta = 2
                 )
+            ),
+            certificado = CertificadoModel(
+                titulo = "Certificado de Proteção para as Mãos",
+                imagemResId = R.drawable.certificado_maos
             )
         ),
         CursoRepositorio(
@@ -57,6 +67,10 @@ object CursosRepositorio {
                     alternativas = listOf("10dB", "15dB", "20dB", "25dB"),
                     respostaCorreta = 2
                 )
+            ),
+            certificado = CertificadoModel(
+                titulo = "Certificado de Proteção para as Mãos",
+                imagemResId = R.drawable.certificado_maos
             )
         ),
         CursoRepositorio(
@@ -76,6 +90,10 @@ object CursosRepositorio {
                     alternativas = listOf("Arnês", "Casco", "Jugular", "Viseira"),
                     respostaCorreta = 3
                 )
+            ),
+            certificado = CertificadoModel(
+                titulo = "Certificado de Proteção para as Mãos",
+                imagemResId = R.drawable.certificado_maos
             )
         ),
         CursoRepositorio(
@@ -95,6 +113,10 @@ object CursosRepositorio {
                     alternativas = listOf("UV+", "W+", "IR-5", "EN166"),
                     respostaCorreta = 3
                 )
+            ),
+            certificado = CertificadoModel(
+                titulo = "Certificado de Proteção para as Mãos",
+                imagemResId = R.drawable.certificado_maos
             )
         ),
         CursoRepositorio(
@@ -114,6 +136,10 @@ object CursosRepositorio {
                     alternativas = listOf("1m", "1.5m", "2m", "6m"),
                     respostaCorreta = 1
                 )
+            ),
+            certificado = CertificadoModel(
+                titulo = "Certificado de Proteção para as Mãos",
+                imagemResId = R.drawable.certificado_maos
             )
         )
     )

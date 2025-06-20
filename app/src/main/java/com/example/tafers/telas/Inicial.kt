@@ -45,7 +45,8 @@ val listaTreinamentos = CursosRepositorio.cursos.map {
         categoria = it.categoria,
         topicos = it.topicos,
         videoUrl = it.videoUrl,
-        quiz = it.quiz
+        quiz = it.quiz,
+        certificado = it.certificado
     )
 }
 
@@ -63,7 +64,9 @@ fun ItemTreinamento(
     DisposableEffect(Unit) {
         tts = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                tts?.language = Locale.getDefault()
+                tts?.language = Locale(
+                    "pt", "BR" // Define o idioma para Português do Brasil
+                )
             }
         }
         onDispose {
@@ -90,23 +93,16 @@ fun ItemTreinamento(
                         .height(130.dp),
                     contentScale = ContentScale.Crop
                 )
-                // Ícone de play centralizado
-                IconButton(
-                    onClick = { /* ação do play */ },
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .size(48.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow, // Use o ícone de play padrão
-                        contentDescription = "Play",
-                        tint = Color.White,
-                        modifier = Modifier.size(48.dp)
-                    )
-                }
                 // Botão de áudio no canto superior direito (mantido)
                 IconButton(
-                    onClick = { /* ação do áudio */ },
+                    onClick = {
+                        tts?.speak(
+                            curso.descricao,
+                            TextToSpeech.QUEUE_FLUSH,
+                            null,
+                            null
+                        )
+                    },
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(1.dp)
@@ -142,15 +138,15 @@ fun ItemTreinamento(
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     Text(
-                        text = "0%",
+                        text = "60%",
                         fontSize = 10.sp,
                         style = MaterialTheme.typography.bodyMedium,
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     LinearProgressIndicator(
-                        progress = 0.0f,
+                        progress = 0.6f,
                         modifier = Modifier.fillMaxWidth().height(8.dp).background(Color.Transparent),
-                        color = Color.LightGray,
+                        color = Color.Green,
                     )
                 }
             }

@@ -46,6 +46,8 @@ class ChatViewModel : ViewModel(), TextToSpeech.OnInitListener {
         viewModelScope.launch {
             val chat = generativeModel.startChat()
 
+            val prompt = "Você é um assistente virtual especializado em responder perguntas sobre o aplicativo TAFERS, sobre Segurança do Trabalho. Responda de forma clara e objetiva, mas sempre seja educada, sempre em português: $question"
+
             messageList.add(
                 MessageModel(
                     question,
@@ -53,7 +55,7 @@ class ChatViewModel : ViewModel(), TextToSpeech.OnInitListener {
                 )
             )
 
-            val response = chat.sendMessage(question)
+            val response = chat.sendMessage(prompt)
 
             messageList.add(
                 MessageModel(

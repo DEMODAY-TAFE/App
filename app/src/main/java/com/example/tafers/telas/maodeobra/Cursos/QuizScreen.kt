@@ -189,7 +189,7 @@ fun ResultadoFinal(acertos: Int, total: Int, navController: NavController) {
                 )
             }
             Button(
-                onClick = { navController.popBackStack() },
+                onClick = { navController.navigate("certificados") },
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp),
